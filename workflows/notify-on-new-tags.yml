@@ -3,8 +3,7 @@ on:
     url:
       - https://github.com/TiddlyWiki/TiddlyWiki5/tags.atom
     config:
-      # skipFirst: true
-      limit: 1
+      skipFirst: true
       format: |
         item.repo = new URL(item.link).pathname.split('/').slice(1,3).join('/');
         return item;
