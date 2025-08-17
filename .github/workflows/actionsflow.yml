@@ -1,7 +1,8 @@
 name: Actionsflow
 on:
-  # schedule:
-  #   - cron: "*/15 * * * *"
+  schedule:
+    # - cron: "*/15 * * * *"
+    - cron: "6,21,36,51 * * * *"
   push:
     branches:
       - main
