@@ -8,8 +8,8 @@ on:
       format: |
         item.repo = new URL(item.link).pathname.split('/').slice(1,3).join('/');
 jobs:
-  print:
-    name: Print
+  print-and-notify:
+    name: Print and notify
     runs-on: ubuntu-latest
     steps:
       - name: Print Outputs
