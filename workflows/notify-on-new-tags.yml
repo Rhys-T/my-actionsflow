@@ -2,8 +2,11 @@ on:
   rss:
     url:
       - https://github.com/TiddlyWiki/TiddlyWiki5/tags.atom
-    format: |
-      item.repo = new URL(item.link).pathname.split('/').slice(1,3).join('/');
+    config:
+      # skipFirst: true
+      limit: 1
+      format: |
+        item.repo = new URL(item.link).pathname.split('/').slice(1,3).join('/');
 jobs:
   print:
     name: Print
