@@ -26,6 +26,7 @@ jobs:
           title: ${{on.rss.outputs.title}}
           link: ${{on.rss.outputs.link}}
           repo: ${{on.rss.outputs.repo}}
+          contentSnippet: ${{on.rss.outputs.contentSnippet}}
           topicBase: ${{secrets.NTFY_TOPIC_BASE}}
         run: |
           curl \
@@ -33,4 +34,5 @@ jobs:
             -H "Title: $repo has new tag: $title" \
             -H "Tag: label" \
             -H "Click: $link" \
+            -d "$contentSnippet" \
             "https://ntfy.sh/$topicBase-new-tags"
