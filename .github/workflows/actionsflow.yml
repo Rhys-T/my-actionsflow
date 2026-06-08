@@ -43,7 +43,14 @@ jobs:
         with:
           version: 0.2.89
       - name: Run act
-        run: act --workflows ./dist/workflows --secret-file ./dist/.secrets --eventpath ./dist/event.json --env-file ./dist/.env -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest
+        run: |
+          shopt -s dotglob
+          files=(./dist/workflows/*)
+          if [[ -e $files || -L $files ]]; then
+            act --workflows ./dist/workflows --secret-file ./dist/.secrets --eventpath ./dist/event.json --env-file ./dist/.env -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest
+          else
+            echo Nothing to do
+          fi
       - name: Run Upterm
         if: "${{ !cancelled() && github.event.inputs.upterm == 'true' }}"
         uses: owenthereal/action-upterm@47652056242288ccbebd30f836e9885d09a75365 # v1.15.0
