@@ -53,7 +53,7 @@ jobs:
           fi
       - name: Run Upterm
         if: "${{ !cancelled() && github.event.inputs.upterm == 'true' }}"
-        uses: owenthereal/action-upterm@41ec120391a17f0dbc38ba074d19245e925855bf # v2.3.0
+        uses: owenthereal/action-upterm@175d33786004a53b1538bcf157402b7197ce5029 # v2.6.0
         with:
           limit-access-to-actor: true
           limit-access-to-users: Rhys-T
